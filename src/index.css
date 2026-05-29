@@ -1,0 +1,272 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pink-primary: #ff69b4;
+  --color-pink-dark: #db2777;
+  --color-pink-light: #ffb6d9;
+  --color-pink-glow: #ff1493;
+  --color-pink-soft: #fff0f5;
+  --color-sea-green: #2e8b7b;
+  --color-sea-green-light: #3cb4a0;
+  --color-sea-green-dark: #1a6b5a;
+  --color-sea-green-glow: #20b2aa;
+  --color-dark: #060609;
+  --color-dark-card: #0d0d14;
+  --color-dark-surface: #12121c;
+  --font-dancing: "Dancing Script", cursive;
+  --font-poppins: "Poppins", sans-serif;
+  --font-bebas: "Bebas Neue", sans-serif;
+  --font-playfair: "Playfair Display", serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #060609;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff69b4, #2e8b7b);
+  border-radius: 10px;
+}
+
+/* Hide all nested scrollbars */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox scrollbar - hide nested */
+* {
+  scrollbar-width: none;
+}
+
+/* Main scrollbar only on html/body */
+html::-webkit-scrollbar {
+  width: 8px;
+  display: block;
+}
+html::-webkit-scrollbar-track {
+  background: #060609;
+}
+html::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff69b4, #2e8b7b);
+  border-radius: 10px;
+}
+
+html {
+  scrollbar-width: auto;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+html {
+  scrollbar-gutter: stable;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #060609;
+  color: white;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Animations */
+@keyframes netflixGlow {
+  0%,
+  100% {
+    text-shadow:
+      0 0 20px rgba(255, 105, 180, 0.4),
+      0 0 40px rgba(255, 105, 180, 0.2);
+  }
+  50% {
+    text-shadow:
+      0 0 30px rgba(255, 105, 180, 0.7),
+      0 0 60px rgba(255, 105, 180, 0.4),
+      0 0 100px rgba(46, 139, 123, 0.2);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.15);
+  }
+  30% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.15);
+  }
+  60% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes float-gentle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+}
+.animate-heartbeat {
+  animation: heartbeat 1.8s ease-in-out infinite;
+}
+.animate-float-gentle {
+  animation: float-gentle 5s ease-in-out infinite;
+}
+
+/* Netflix card */
+.netflix-card {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.netflix-card:hover {
+  transform: scale(1.04) translateY(-4px);
+  box-shadow:
+    0 24px 48px -12px rgba(255, 105, 180, 0.2),
+    0 0 0 1px rgba(255, 105, 180, 0.1);
+}
+
+/* Glass */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Song card */
+.song-card {
+  transition: all 0.25s ease;
+}
+.song-card:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 105, 180, 0.08),
+    rgba(46, 139, 123, 0.08)
+  ) !important;
+  transform: translateX(4px);
+}
+
+/* Scrollbar hide */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Letter */
+.letter-paper {
+  background: linear-gradient(
+    180deg,
+    #fefcfb 0%,
+    #fef0ed 30%,
+    #fce4ec 60%,
+    #fdf2f8 100%
+  );
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    inset 0 0 100px rgba(255, 105, 180, 0.03);
+}
+
+/* Vinyl spin */
+@keyframes vinyl-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-vinyl-spin {
+  animation: vinyl-spin 3s linear infinite;
+}
+.animate-vinyl-spin-paused {
+  animation-play-state: paused;
+}
+
+/* Volume slider thumb */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 4px;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff69b4;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 6px rgba(255, 105, 180, 0.4);
+  transition: transform 0.15s;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff69b4;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 6px rgba(255, 105, 180, 0.4);
+}
+
+/* Smooth section transitions */
+section {
+  will-change: auto;
+}
+
+/* Mobile bottom nav safe area */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  footer {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}

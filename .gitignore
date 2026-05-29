@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+pnpm-lock.yaml
+npm-debug.log*
+yarn-error.log*
+
+# Build output
+dist/
+dist-ssr/
+*.local
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Large Media Files
+*.mp4
+*.MP4
+*.mov
+*.avi
+*.zip
+*.tar.gz
+*.7z
+
+# Environment
+.env
+.env.local
+.env.*.local
